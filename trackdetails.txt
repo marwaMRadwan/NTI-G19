@@ -1,8 +1,8 @@
-review js, DOM
-advanced js =>  promises, callback, async await , croshers, then, catch
-node => on terminal
-expressjs=> framework (web browser), hbs
-mongoodb=> mongoodb, mongoose
-api => express+mongoose(mongodb)
 
-angular
+	review js, DOM
+	advanced js =>  promises, callback, async await , cru, then, catch
+	node => on terminal
+	expressjs=> framework (web browser), hbs
+	mongoodb=> mongoodb, mongoose
+	api => express+mongoose(mongodb)
+	angular
