@@ -2,3 +2,14 @@ facebook group:
 https://www.facebook.com/groups/1049865982326306
 github link:
 https://github.com/marwaMRadwan/NTI-G19
+
+to download
+git clone https://github.com/marwaMRadwan/NTI-G19
+
+to update the repo 
+git pull
+
+to upload
+git add .
+git commit -m "m"
+git push origin master
