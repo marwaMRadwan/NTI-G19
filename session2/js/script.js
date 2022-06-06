@@ -50,7 +50,6 @@ const createMyOwnElement = (parent, ele, text, classes) =>{
     parent.appendChild(myEle)
     return myEle
 }
-
 // show all (read all)
 // if(contentWrap){
 //     const allData = readFromStorage('tasks')
