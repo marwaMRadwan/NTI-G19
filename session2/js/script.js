@@ -1,19 +1,6 @@
 const addForm = document.querySelector("#addForm")
 const taskHeads = ["taskTitle", "taskContent", "age"]
-addForm.addEventListener("submit", function(e){
-    e.preventDefault()
-    // console.log(this)
-    // console.log("test")
-    // const task = {
-    //     taskTitle: addForm.elements['taskTitle'].value,
-    //     taskContent: addForm.elements.taskContent.value
-    // }
-    const task = { status: false, id: Date.now() }
-    taskHeads.forEach( h => task[h] = addForm.elements[h].value )
-    console.log(task)
-})
-// read from storage
-//union operator ||
+// read from storage //union operator ||
 const readFromStorage = (key) =>{
     let data 
     try{
@@ -37,7 +24,24 @@ const writeDataToStorage = (key, value) =>{
     }
 }
 // add (create)
-
+if(addForm){
+    addForm.addEventListener("submit", function(e){
+        e.preventDefault()
+        // console.log(this)
+        // console.log("test")
+        // const task = {
+        //     taskTitle: addForm.elements['taskTitle'].value,
+        //     taskContent: addForm.elements.taskContent.value
+        // }
+        const task = { status: false, id: Date.now() }
+        taskHeads.forEach( h => task[h] = addForm.elements[h].value )
+        const allTasks = readFromStorage("tasks")
+        allTasks.push(task)
+        writeDataToStorage("tasks", allTasks)
+        addForm.reset()
+        window.location.href = "index.html"
+    })    
+}
 // show all (read all)
  
 // show single (read single)
