@@ -1,0 +1,11 @@
+crud application 
+create read  update delete
+tasks => 
+    - id=>dynamic, unique
+    - title => string
+    - content => string
+    - status => boolean (default=false)
+
+- add new task, show all tasks , show single task, edit task, delete
+
+- local storage
