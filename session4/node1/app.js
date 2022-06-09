@@ -20,9 +20,19 @@
 // }
 //npm js
 //npm init --y
-const validator = require("validator")
+// const validator = require("validator")
 // console.log(validator.isEmail('foobar.com'))
-console.log(validator.isDivisibleBy("50", 3))
+// console.log(validator.isDivisibleBy("50", 3))
+
+const chalk = require("chalk")
+console.log(chalk.red('Hello world!'));
+const nodefetch = require("node-fetch");
+const apiReq= async() =>{
+    const response = await nodefetch('https://jsonplaceholder.typicode.com/photos?_limit=10');
+    const r = await response.json()
+    console.log(r)
+}
+apiReq()
 
 
 

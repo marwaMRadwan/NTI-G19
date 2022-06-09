@@ -10,6 +10,8 @@
   "keywords": [],
   "description": "",
   "dependencies": {
+    "chalk": "^4.0.0",
+    "node-fetch": "^2.0.0",
     "validator": "^13.7.0"
   }
 }
