@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "chalk": "^4.0.0",
-    "uniqid": "^5.4.0"
+    "uniqid": "^5.4.0",
+    "yargs": "^17.5.1"
   }
 }
