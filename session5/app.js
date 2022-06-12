@@ -1,24 +1,18 @@
 const user = require("./controller/user")
-// user.singleUser("99hn349cl4b2f9e")
-// user.editUser("99hn349cl4b2nf9e", {name:"a", age:"c"})
-// console.log(process.argv)
-// user.addUser(process.argv[2], 37, "marwa@gmail.com")
-//yargs
 const yargs = require('yargs')
-
 yargs.command({
     command:"showAll",
     handler: function(){
         user.readAll()
     }
 })
-
 yargs.command({
     command:"addUser",
     builder:{
         name:{
             type:String,
             demandOption:true
+            //default:"marwa"
         },
         email:{},
         age:{
@@ -30,19 +24,39 @@ yargs.command({
         user.addUser(argv.name, argv.age, argv.email)
     }
 })
-
+yargs.command({
+    command: "single",
+    builder:{
+        id:{demandOption:true}
+    },
+    handler:function(argv){
+        user.singleUser(argv.id)
+    }
+})
+yargs.command({
+    command: "edit",
+    builder:{
+        id:{demandOption:true},
+        name:{},
+        email:{},
+        age:{}
+    },
+    handler:function(argv){
+        const newData={}
+        const heads = ["name", "email", "age"]
+        heads.forEach(h=> {
+            if(argv[h]) newData[h]= argv[h]
+        })
+        user.editUser(argv.id, newData)
+    }
+})
+yargs.command({
+    command: "delete",
+    builder:{
+        id:{demandOption:true}
+    },
+    handler:function(argv){
+        user.deleteUser(argv.id)
+    }
+})
 yargs.argv
-
-
-
-
-
-
-
-
-
-
-
-
-
-
