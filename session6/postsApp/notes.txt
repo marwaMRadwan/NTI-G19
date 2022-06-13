@@ -1,0 +1,7 @@
+posts => title, description, date
+
+add posts
+show all
+
+5 routes
+1 not found page
