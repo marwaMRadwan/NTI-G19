@@ -1,13 +1,13 @@
-const home = (req, res)=>{ 
+const home = (req, res)=> { 
     res.render("home")
 }
-const add = (req, res)=>{ 
+const add = (req, res)=> { 
     res.render("add")
 }
-const single =  (req, res)=>{ 
+const single = (req, res)=> { 
     res.render("single")
 }
-const edit =  (req, res)=>{ 
+const edit =  (req, res)=> { 
     res.render("edit")
 }
 module.exports = { home, add, single, edit }
