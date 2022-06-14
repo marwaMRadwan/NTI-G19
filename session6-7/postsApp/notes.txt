@@ -9,3 +9,6 @@ show all
 
 npm start
 npm run scriptName
+
+
+git stash
