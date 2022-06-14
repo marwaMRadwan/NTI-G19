@@ -1,10 +1,17 @@
 {{>header}}
 {{>navbar}}
 <section class="container my-5">
-    <h4 class="">title</h4>
-    <span class="text-muted">1/1/2020</span>
+    {{#if postData}}
+    <h4 class="">{{postData.title}}</h4>
+    <span class="text-muted">{{postData.date}}</span>
     <p class="text-justify">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        {{postData.content}}
     </p>
+    {{else}}
+    <div class="alert alert-danger text-center">
+        <p>Invalid user data</p>
+        <a href="/" class="btn btn-primary">Back Home</a>    
+    </div>
+    {{/if}}
 </section>
 {{>footer}}

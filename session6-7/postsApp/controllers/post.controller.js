@@ -15,8 +15,13 @@ class Post{
         })
     }
     static single = (req, res)=> { 
+        // res.send(req.params)
+        const postId = req.params.id
+        const data = deal.readDataFromJSON("models/posts.json")
+        const postData = data.find(p=> p.id == postId)
         res.render("single", {
-            pageTitle:"single Post"
+            pageTitle:"single Post",
+            postData
         })
     }
     static edit =  (req, res)=> { 
