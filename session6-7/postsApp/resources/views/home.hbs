@@ -33,33 +33,22 @@
             </tr>
         </thead>
         <tbody>
+          {{#if isEmpty}}
+          <tr>
+            <td colspan="3" class="bg-danger text-white">No posts to show</td>
+          </tr>
+          {{/if}}
+          {{#each data}}
             <tr>
-                <td>1</td>
-                <td>title 1</td>
+                <td>{{this.id}}</td>
+                <td>{{this.title}}</td>
                 <td>
                     <a href="/single" class="btn btn-primary">Show</a>
                     <a href="/edit" class="btn btn-warning">Edit</a>
                     <a href="/delete" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>title 1</td>
-                <td>
-                    <a href="/single" class="btn btn-primary">Show</a>
-                    <a href="/edit" class="btn btn-warning">Edit</a>
-                    <a href="/delete" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>title 1</td>
-                <td>
-                    <a href="/single" class="btn btn-primary">Show</a>
-                    <a href="/edit" class="btn btn-warning">Edit</a>
-                    <a href="/delete" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
+          {{/each}}
         </tbody>
     </table>
 </section>
