@@ -5,3 +5,7 @@ show all
 
 5 routes
 1 not found page
+
+
+npm start
+npm run scriptName
