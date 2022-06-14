@@ -10,9 +10,32 @@ class Post{
         })
     }
     static add = (req, res)=> { 
-        res.render("add", {
+        if(req.query.title){
+            // const post = req.query
+            // post.id = Date.now()
+            const post = {...req.query, id: Date.now()}
+            const data = deal.readDataFromJSON("models/posts.json")
+            data.push(post)
+            deal.writeDataToJSON("models/posts.json", data)
+            res.redirect("/")
+        }
+        else{
+            res.render("add", {
+                pageTitle:"Add Post"
+            })    
+        }
+    }
+    static addPost = (req, res)=> { 
+        res.render("addpost", {
             pageTitle:"Add Post"
-        })
+        })    
+    }
+    static addPostLogic = (req,res)=>{
+        const post = {...req.body, id: Date.now()}
+        const data = deal.readDataFromJSON("models/posts.json")
+        data.push(post)
+        deal.writeDataToJSON("models/posts.json", data)
+        res.redirect("/")    
     }
     static single = (req, res)=> { 
         // res.send(req.params)

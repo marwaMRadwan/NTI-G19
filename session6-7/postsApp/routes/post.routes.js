@@ -7,6 +7,9 @@ router.get("/single/:id",postController.single)
 
 router.get("/add", postController.add)
 
+router.get("/addPost", postController.addPost)
+router.post("/addPost", postController.addPostLogic)
+
 router.get("/edit",postController.edit)
 
 module.exports = router
