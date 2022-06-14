@@ -48,9 +48,23 @@ class Post{
         })
     }
     static edit =  (req, res)=> { 
+        const postId = req.params.id
+        const data = deal.readDataFromJSON("models/posts.json")
+        const postData = data.find(p=> p.id == postId)
         res.render("edit", {
-            pageTitle:"Edit Post"
+            pageTitle:"Edit Post",
+            postData
         })
+    }
+    static test = (req,res)=>{
+        res.render("test")
+    }
+    static delItem = (req,res)=>{
+        const postId = req.params.id
+        const data = deal.readDataFromJSON("models/posts.json")
+        const postData = data.filter(p=> p.id != postId)
+        deal.writeDataToJSON("models/posts.json", postData)
+        res.redirect("/")
     }
 }
 module.exports = Post
