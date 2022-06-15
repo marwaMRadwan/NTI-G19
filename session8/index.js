@@ -1,6 +1,7 @@
 // npm init --y   npm i mongodb
 const mongodb = require("mongodb")
 const MongoClient = mongodb.MongoClient
+const ObjectId = mongodb.ObjectId
 const dbURL = "mongodb://localhost:27017"
 const dbName = "g19"
 const data = [
@@ -101,11 +102,30 @@ MongoClient.connect(dbURL, {}, (error, client)=>{
     //     console.log(e)
     //     client.close()
     // })
+    // db.collection("image")
+    // .find({id:9})
+    // .toArray((err, res)=>{
+    //     if(err) return console.log(err)
+    //     console.log(res)
+    //     client.close()
+    // })
+    // db.collection("image").findOne({_id:new ObjectId("62a9b97295b6dd2c17bf8c19")})
+    // .then(res=>{
+    //     console.log(res)
+    //     client.close()
+    // })
+    // .catch(e=> {
+    //     console.log(e)
+    //     client.close()
+    // })
     db.collection("image")
-    .find({id:9})
-    .toArray((err, res)=>{
-        if(err) return console.log(err)
-        console.log(res)
+    .deleteOne({_id:new ObjectId("62a9b97295b6dd2c17bf8c19")})
+    .then(r=> {
+        console.log(r)
+        client.close()
+    })
+    .catch(e=>{
+        console.log(e)
         client.close()
     })
  })

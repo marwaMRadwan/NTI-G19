@@ -42,13 +42,28 @@ class Post{
             })
     }
     static edit =  (req, res)=> { 
-        // const postId = req.params.id
-        // const data = deal.readDataFromJSON("models/posts.json")
-        // const postData = data.find(p=> p.id == postId)
-        // res.render("edit", {
-        //     pageTitle:"Edit Post",
-        //     postData
-        // })
+        const postId = req.params.id
+        dbConnect(db=>{
+            db.collection("posts")
+            .findOne({_id:new ObjectId(postId)})
+            .then(
+                postData=>
+                    res.render("edit", {
+                        pageTitle:"Edit Post", postData
+                    })
+                )
+            })
+
+    }
+    static editLogic = (req,res)=>{
+        dbConnect(db=>{
+            db.collection("posts")
+            .updateOne(
+                {_id:new ObjectId(req.params.id)},
+                { $set:req.body }
+            )
+            .then(r=>res.redirect("/"))
+        }  )
     }
     static delItem = (req,res)=>{
         const postId = req.params.id
