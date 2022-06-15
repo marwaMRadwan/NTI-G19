@@ -1,0 +1,8 @@
+nosql    sql(postgree, sql, mysql) => tables=> records
+
+
+[ 
+    {name: "marwa", age:37},
+    {name:"nouran"},
+    {name:"ahmed", data:"1/1/2020"}
+]
