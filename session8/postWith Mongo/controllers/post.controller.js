@@ -51,11 +51,12 @@ class Post{
         // })
     }
     static delItem = (req,res)=>{
-        // const postId = req.params.id
-        // const data = deal.readDataFromJSON("models/posts.json")
-        // const postData = data.filter(p=> p.id != postId)
-        // deal.writeDataToJSON("models/posts.json", postData)
-        // res.redirect("/")
+        const postId = req.params.id
+        dbConnect(db=>
+        db.collection("posts")
+        .deleteOne({_id:new ObjectId(postId)})
+            .then(r=> res.redirect("/"))
+        )
     }
 }
 module.exports = Post
