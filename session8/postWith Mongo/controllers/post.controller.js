@@ -1,4 +1,5 @@
 const dbConnect = require("../db/connect")
+const {ObjectId} = require("mongodb")
 class Post{
     static home = (req, res)=> { 
         dbConnect(
@@ -28,14 +29,17 @@ class Post{
         })     
     }
     static single = (req, res)=> { 
-        // // res.send(req.params)
-        // const postId = req.params.id
-        // const data = deal.readDataFromJSON("models/posts.json")
-        // const postData = data.find(p=> p.id == postId)
-        // res.render("single", {
-        //     pageTitle:"single Post",
-        //     postData
-        // })
+        const postId = req.params.id
+        dbConnect(db=>{
+            db.collection("posts")
+            .findOne({_id:new ObjectId(postId)})
+            .then(
+                postData=>
+                    res.render("single", {
+                        pageTitle:"single Post", postData
+                    })
+                )
+            })
     }
     static edit =  (req, res)=> { 
         // const postId = req.params.id
