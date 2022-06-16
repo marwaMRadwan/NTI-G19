@@ -1,0 +1,2 @@
+user => name, age, gender, email, password, addresses:[{location:"",details}],
+        postalCode, status, created At, phone, image
