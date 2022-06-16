@@ -50,23 +50,27 @@ class Post{
         }
 
     }
-    static editLogic = (req,res)=>{
-        // dbConnect(db=>{
-        //     db.collection("posts")
-        //     .updateOne(
-        //         {_id:new ObjectId(req.params.id)},
-        //         { $set:req.body }
-        //     )
-        //     .then(r=>res.redirect("/"))
-        // }  )
+    static editLogic = async(req,res)=>{
+        try{
+            await postModel.findByIdAndUpdate(
+                req.params.id,
+                req.body,
+                {runValidators:true}
+            )
+            res.redirect("/")
+        }
+        catch(e){
+            res.send(e)
+        }
     }
-    static delItem = (req,res)=>{
-        const postId = req.params.id
-        // dbConnect(db=>
-        // db.collection("posts")
-        // .deleteOne({_id:new ObjectId(postId)})
-        //     .then(r=> res.redirect("/"))
-        // )
+    static delItem = async(req,res)=>{
+        try{
+            await postModel.findByIdAndDelete(req.params.id)
+            res.redirect("/")
+        }
+        catch(e){
+            res.send(e)
+        }
     }
 }
 module.exports = Post
