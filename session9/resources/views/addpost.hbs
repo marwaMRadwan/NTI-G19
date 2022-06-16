@@ -3,13 +3,19 @@
 <section class="container my-5">
     <form method="post">
         <div class="mb-3">
-            <input placeholder="title" name="title" class="form-control">
+            <input placeholder="title" name="title" class="form-control" value="{{post.title}}">
+            {{#if titleErr}}
+            <div class="text-danger">* {{titleErr}}</div>
+            {{/if}}
         </div>
         <div class="mb-3">
-            <input placeholder="content" name="content" class="form-control">
+            <input placeholder="content" name="content" class="form-control" value="{{post.content}}">
+            {{#if contentErr}}
+            <div class="text-danger">* {{contentErr}}</div>
+            {{/if}}
         </div>
         <div class="mb-3">
-            <input placeholder="date" name="date" class="form-control" type="date">
+            <input placeholder="date" name="date" class="form-control" type="date" value="{{post.date}}">
         </div>
         <div class="mb-3">
             <button class="btn btn-primary">Add</button>

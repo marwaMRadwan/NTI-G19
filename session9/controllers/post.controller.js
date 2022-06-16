@@ -28,7 +28,12 @@ class Post{
             res.redirect("/")
         }
         catch(e){
-            console.log(e)
+            res.render("addpost", {
+                // post,
+                titleErr: e.errors.title?.message||null,   
+                contentErr: e.errors.content?.message||null    
+            })
+            // res.send(e)
         }
     }
     static single = async(req, res)=> { 
