@@ -1,12 +1,17 @@
 const postModel = require("../db/models/post.model")
 class Post{
-    static home = (req, res)=> { 
-const data = []
-        res.render("home", {
-            pageTitle:"all posts",
-            data,
-            isEmpty: !data.length
-        })    
+    static home = async(req, res)=> { 
+        try{
+            const data = await postModel.find()
+            res.render("home", {
+                pageTitle:"all posts",
+                data,
+                isEmpty: !data.length
+            })        
+        }
+        catch(e){
+            res.send(e)
+        }
     }
     static addPost = (req, res)=> { 
         res.render("addpost", {
@@ -26,31 +31,23 @@ const data = []
             console.log(e)
         }
     }
-    static single = (req, res)=> { 
-        const postId = req.params.id
-        // dbConnect(db=>{
-        //     db.collection("posts")
-        //     .findOne({_id:new ObjectId(postId)})
-        //     .then(
-        //         postData=>
-        //             res.render("single", {
-        //                 pageTitle:"single Post", postData
-        //             })
-        //         )
-        //     })
+    static single = async(req, res)=> { 
+        try{
+            const postData = await postModel.findById(req.params.id)
+            res.render("single", { pageTitle:"single Post", postData})
+        }
+        catch(e){
+            res.send(e)
+        }
     }
-    static edit =  (req, res)=> { 
-        const postId = req.params.id
-        // dbConnect(db=>{
-        //     db.collection("posts")
-        //     .findOne({_id:new ObjectId(postId)})
-        //     .then(
-        //         postData=>
-        //             res.render("edit", {
-        //                 pageTitle:"Edit Post", postData
-        //             })
-        //         )
-        //     })
+    static edit = async(req, res)=> { 
+        try{
+            const postData = await postModel.findById(req.params.id)
+            res.render("edit", { pageTitle:"edit Post", postData})
+        }
+        catch(e){
+            res.send(e)
+        }
 
     }
     static editLogic = (req,res)=>{
