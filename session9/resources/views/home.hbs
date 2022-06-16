@@ -1,0 +1,55 @@
+{{>header}}
+{{>navbar}}
+{{!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/images/1.avif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/2.avif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/3.avif" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> --}}
+<h3>{{name}}</h3>
+<section class="container my-5">
+    <h3 class="text-center text-primary">All Posts</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          {{#if isEmpty}}
+          <tr>
+            <td colspan="3" class="bg-danger text-white">No posts to show</td>
+          </tr>
+          {{/if}}
+          {{#each data}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.title}}</td>
+                <td>
+                    <a href="/single/{{this._id}}" class="btn btn-primary">Show</a>
+                    <a href="/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+                    <a href="/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+          {{/each}}
+        </tbody>
+    </table>
+</section>
+{{>footer}}
