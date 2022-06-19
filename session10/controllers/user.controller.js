@@ -37,6 +37,13 @@ class User{
     static getSingleUser = async(req, res) => {
         try{
             const userData = await userModel.findById(req.params.id)
+            if(!userData){
+                res.status(404).send({
+                    apiStatus:false,
+                    data:null,
+                    message:"invalid user id"
+                })
+            }
             res.status(200).send({
                 apiStatus:true,
                 data:userData,
@@ -99,7 +106,53 @@ class User{
         }
     }
     //update password
+    static changePassword = async(req,res) =>{
+        try{
+            const userData = await userModel.findById(req.params.id)
+            userData.password = req.body.password
+            await userData.save()
+            res.status(200).send({
+                apiStatus:true,
+                data:userData,
+                message:"data fetched"
+            })
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, error: e, message:e.message})
+        }
+    }
     //update user
+    static updateUser= async(req,res)=>{
+        try{
+            const userData = await userModel.findByIdAndUpdate(
+                req.params.id,
+                req.body,
+                {runValidators:true}
+                )
+            res.status(200).send({
+                apiStatus:true,
+                data:userData,
+                message:"data fetched"
+            })
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, error: e, message:e.message})
+        }
+    }
     //remove account
+    static deleteUser= async(req,res)=>{
+        try{
+            const userData = await userModel.findByIdAndDelete(req.param.id)
+            res.status(200).send({
+                apiStatus:true,
+                data:userData,
+                message:"data fetched"
+            })
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, error: e, message:e.message})
+        }
+    }
+
 }
 module.exports = User
