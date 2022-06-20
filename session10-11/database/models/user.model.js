@@ -51,7 +51,15 @@ const userSchema = new mongoose.Schema({
     image:{
         type:String,
         trim:true
-    }
+    },
+    tokens: [
+        {
+            token:{
+                type:String,
+                required: true
+            }
+        }
+    ]
 },
 {
     timestamps:true
@@ -60,6 +68,7 @@ userSchema.methods.toJSON= function(){
     const user = this.toObject()
     delete user.__v
     delete user.password
+    delete user.tokens
     return user
 }
 userSchema.pre("save", async function(){
@@ -78,7 +87,10 @@ const jwt = require("jsonwebtoken")
 userSchema.methods.generateToken = async function(){
     const user = this
     const token = jwt.sign({_id:user._id}, process.env.JWTKEY)
+    user.tokens = user.tokens.concat({token : token})
+    await user.save()
     return token
 }
+
 const User = mongoose.model("User",userSchema)
 module.exports=User
