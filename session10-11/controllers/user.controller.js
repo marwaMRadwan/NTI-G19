@@ -4,6 +4,26 @@ class User{
     static register = async(req,res)=>{
         try{
             const user = new userModel(req.body)
+            user.userType="user"
+            await user.save()
+            res.status(200).send({
+                apiStatus: true,
+                data:user,
+                message:"user added successfuly"
+            })
+        }
+        catch(e){   
+            res.status(500).send({
+                apiStatus:false,
+                data:e.message,
+                message:"error in register"
+            })
+        }
+    }
+    static addAdmin = async(req,res)=>{
+        try{
+            const user = new userModel(req.body)
+            user.userType="admin"
             await user.save()
             res.status(200).send({
                 apiStatus: true,
@@ -140,10 +160,11 @@ class User{
     static updateUser= async(req,res)=>{
         try{
             const userData = await userModel.findByIdAndUpdate(
-                req.params.id,
+                req.user._id,
                 req.body,
                 {runValidators:true}
                 )
+            // req.body.for in=> req.user.key=req.body.key
             res.status(200).send({
                 apiStatus:true,
                 data:userData,

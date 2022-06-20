@@ -1,0 +1,22 @@
+asmaa => event planner
+randa => simple courses => user types => teacher, student
+      => courses 
+      => 2 models => user, course=> [videos]
+      => teacher => add course , add video inside course, show courses, del course, edit course
+      ==> student=> show all courses, show instructor bio, show my cout=rses, enroll course
+yaser => online bookstore 
+    => customer, admin 
+    => admin => add book, edit, del, show, add author
+    => customer => show, add to cart, del cart, proceed, my books
+ezz, ali => online shop
+         => user, category, products
+esraa, ehdaa => Ecommerce  
+ahmed mohram => Blog
+ahmed maged, moaz, marina => Ecommerce
+amira, eman => Ecommerce
+bahy => Ecommerce
+m mosad => finicial
+nada => Ecommerce
+m wael => blog
+rana => programmers city
+youmna => reservation
