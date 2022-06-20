@@ -122,7 +122,8 @@ class User{
     //update password
     static changePassword = async(req,res) =>{
         try{
-            const userData = await userModel.findById(req.params.id)
+            // const userData = await userModel.findById(req.params.id)
+            const userData= req.user
             userData.password = req.body.password
             await userData.save()
             res.status(200).send({
