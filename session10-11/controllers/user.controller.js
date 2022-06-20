@@ -106,12 +106,12 @@ class User{
     static changeStatus = async(req,res) =>{
         try{
             // await userModel.findByIdAndUpdate(req.params.id, {status:true})
-            const userData = await userModel.findById(req.params.id)
-            userData.status = !userData.status
-            await userData.save()
+            // const userData = await userModel.findById(req.params.id)
+            req.user.status = !req.user.status
+            await req.user.save()
             res.status(200).send({
                 apiStatus:true,
-                data:userData,
+                data:req.user,
                 message:"data fetched"
             })
         }
@@ -168,6 +168,35 @@ class User{
             res.status(500).send({apiStatus:false, error: e, message:e.message})
         }
     }
+    static logout = async(req,res)=>{
+        try{
+            req.user.tokens = req.user.tokens.filter(t=> t.token != req.token)
+            await req.user.save()
+            res.status(200).send({
+                apiStatus:true,
+                message:"logged out"
+            })
 
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, error: e, message:e.message})
+        }
+    }
+    static logoutAll = async(req,res)=>{
+        try{
+            req.user.tokens = []
+            await req.user.save()
+            res.status(200).send({
+                apiStatus:true,
+                message:"logged out"
+            })
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, error: e, message:e.message})
+        }        
+    }
+    static profile = async(req,res)=>{
+        res.status(200).send({apiStatus:true, data:req.user, message:"data featched"})
+    }
 }
 module.exports = User

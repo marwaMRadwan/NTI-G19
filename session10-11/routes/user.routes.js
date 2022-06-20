@@ -12,9 +12,9 @@ router.get("/all/:id", user.getSingleUser)
 //update status (activate - deactivate)
 router.patch("/activate/:id", user.activateUser)
 router.put("/deactivate/:id", user.deactivateUser)
-router.patch("/changeStatus/:id", user.changeStatus)
+router.patch("/changeStatus", auth, user.changeStatus)
 //update user
-router.patch("/update/:id", user.updateUser)
+router.patch("/update/:id", auth, user.updateUser)
 //update password
 router.patch("/updatePassword", auth, user.changePassword)
 //remove account
