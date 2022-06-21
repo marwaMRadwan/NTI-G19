@@ -34,7 +34,20 @@ const userSchema = new mongoose.Schema({
         trim:true,
         match:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     },
-    // addresses:[{location:"",details}],
+    addresses:[
+        {
+            details:{
+                type:String,
+                required:true,
+                trim:true
+            },
+            addrType:{
+                type:String,
+                required:true,
+                trim:true
+            }
+        }
+    ],
     postalCode:{
         type:String,
         trim:true

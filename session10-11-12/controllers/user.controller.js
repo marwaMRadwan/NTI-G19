@@ -180,7 +180,7 @@ class User{
     //remove account
     static deleteUser= async(req,res)=>{
         try{
-            const userData = await userModel.findByIdAndDelete(req.param.id)
+            const userData = await userModel.findByIdAndDelete(req.user._id)
             res.status(200).send({
                 apiStatus:true,
                 data:userData,
@@ -220,6 +220,16 @@ class User{
     }
     static profile = async(req,res)=>{
         res.status(200).send({apiStatus:true, data:req.user, message:"data featched"})
+    }
+    static addAddr = async(req,res)=>{
+        try{
+            req.user.addresses.push(req.body)
+            await req.user.save()
+            res.status(200).send({data:req.user, apiStatus:true, message:"ADDED"})
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, message:e.message})
+        }
     }
 }
 module.exports = User

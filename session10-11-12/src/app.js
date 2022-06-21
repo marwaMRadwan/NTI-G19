@@ -5,4 +5,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 const userRoutes=require("../routes/user.routes")
 app.use("/user",userRoutes)
+const postRoutes=require("../routes/post.routes")
+app.use("/post",postRoutes)
 module.exports = app

@@ -9,7 +9,7 @@ router.post("/login", user.login)
 //get all users
 router.get("/all",auth, user.getAllUsers)
 //get single user
-router.get("/all/:id", user.getSingleUser)
+router.get("/all/:id", auth, user.getSingleUser)
 //update status (activate - deactivate)
 router.patch("/activate/:id", user.activateUser)
 router.put("/deactivate/:id", user.deactivateUser)
@@ -19,5 +19,7 @@ router.patch("/update", auth, user.updateUser)
 //update password
 router.patch("/updatePassword", auth, user.changePassword)
 //remove account
-router.delete("/delete/:id", user.deleteUser)
+router.delete("/delete", user.deleteUser)
+//add Address to user
+router.post("/addAddr", auth, user.addAddr)
 module.exports=router

@@ -3,7 +3,6 @@ user => name, age, gender, email, password, addresses:[{location:"",details}],
 
         thunder client
 
-send email
 upload image
 relation
 inner array
