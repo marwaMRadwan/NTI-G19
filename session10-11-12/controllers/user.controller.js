@@ -1,5 +1,7 @@
 const userModel = require("../database/models/user.model")
 const sendEmailMe = require("../helper/sendEmail.helper")
+const fs = require("fs")
+const path=require("path")
 class User{
     //add user
     static register = async(req,res)=>{
@@ -231,5 +233,18 @@ class User{
             res.status(500).send({apiStatus:false, message:e.message})
         }
     }
+    static uploadImage=  async(req, res)=>{
+        try{
+            const ext = path.extname(req.file.originalname)
+            const newName = "images/"+req.file.fieldname + Date.now()+ext
+            fs.rename(req.file.path, newName, ()=>{})
+            req.user.image = newName
+            await req.user.save()
+            res.send({data:req.user})
+        }
+        catch(e){
+            res.send(e.message)
+        }
+      }
 }
 module.exports = User
