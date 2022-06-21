@@ -18,5 +18,15 @@ class Post{
             res.status(500).send({apiStatus:false, message:e.message})
         }
     }
+    static myPosts = async(req,res)=>{
+        // await postModel.find({userId:req.user._id})
+        try{
+            await req.user.populate("myPosts")
+            res.status(200).send({data:req.user.myPosts})
+        }
+        catch(e){
+            res.status(500).send({err:e.message})
+        }
+    }
 }
 module.exports = Post

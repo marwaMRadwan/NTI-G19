@@ -81,6 +81,11 @@ const userSchema = new mongoose.Schema({
 {
     timestamps:true
 })
+userSchema.virtual("myPosts", {
+    ref:"Post",
+    localField:"_id",
+    foreignField:"userId"
+})
 userSchema.methods.toJSON= function(){
     const user = this.toObject()
     delete user.__v
