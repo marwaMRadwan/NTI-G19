@@ -1,4 +1,5 @@
 const userModel = require("../database/models/user.model")
+const sendEmailMe = require("../helper/sendEmail.helper")
 class User{
     //add user
     static register = async(req,res)=>{
@@ -6,6 +7,7 @@ class User{
             const user = new userModel(req.body)
             user.userType="user"
             await user.save()
+            sendEmailMe(user.email, "hello")
             res.status(200).send({
                 apiStatus: true,
                 data:user,

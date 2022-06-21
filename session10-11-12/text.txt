@@ -2,3 +2,8 @@ user => name, age, gender, email, password, addresses:[{location:"",details}],
         postalCode, status, created At, phone, image
 
         thunder client
+
+send email
+upload image
+relation
+inner array
