@@ -1,0 +1,7 @@
+<!-- one way binding ==> property binding -->
+
+<form>
+    <input [type]="inputType" [placeholder]="inputPlaceholder" [name]="inputName">
+    <input type="{{inputType}}" [placeholder]="getInputPlaceholder()">
+    <button type="button">Show/Hide Password</button>
+</form>

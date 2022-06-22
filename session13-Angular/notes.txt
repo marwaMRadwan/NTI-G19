@@ -1,0 +1,18 @@
+-- install cli ==> npm i -g @angular/cli
+-- create Angular App ==> ng new app-Name
+-- Angular Structure
+-- important file ==> angular.json 
+-- important folder ==> src 
+-- src folder ==> app folder , assets folder , style file , index file
+-- app Folder ==> app-routing.module.ts ==> angular Routing (node Router) , app.component (.html , .css , .ts ) 
+-- app.component ==> main angular component 
+-- app.module.ts ==> parent Module (package , component , dependancy injection , bootstrap)
+-- run app ==> ng serve -o
+-- create components ==> ng g c folderName/componentName
+-- components ==>  navbar 
+                   slider
+                   blogs
+                   footer
+
+-- Data Binding ==> one way Binding ==> interpolation {{TemplateExpression}}
+                                        property Binding
