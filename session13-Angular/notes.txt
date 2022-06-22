@@ -15,4 +15,5 @@
                    footer
 
 -- Data Binding ==> one way Binding ==> interpolation {{TemplateExpression}}
-                                        property Binding
+                                        property Binding []
+                                        Event Binding ()

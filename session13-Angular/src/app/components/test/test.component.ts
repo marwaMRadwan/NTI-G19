@@ -12,4 +12,11 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleInput(event : any){
+    console.log("typing....")
+    console.log(event)
+    // console.log(event)
+   
+  }
+
 }

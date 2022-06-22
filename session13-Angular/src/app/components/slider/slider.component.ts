@@ -10,6 +10,7 @@ export class SliderComponent implements OnInit {
   inputType : string = "password"
   inputPlaceholder : string ="enter your password"
   inputName : string = "userpassword"
+  inputDisabled:boolean = true
   constructor() { }
 
   ngOnInit(): void {
