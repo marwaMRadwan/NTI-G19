@@ -239,7 +239,23 @@ class User{
             const newName = "images/"+req.file.fieldname + Date.now()+ext
             fs.rename(req.file.path, newName, ()=>{})
             req.user.image = newName
+            req.user.name= req.body.name
+            req.user.age = req.body.age
             await req.user.save()
+            res.send({data:req.user})
+        }
+        catch(e){
+            res.send(e.message)
+        }
+      }
+      static uploadImageFile=  async(req, res)=>{
+        try{
+            const oldFile = req.user.image
+            req.user.image = req.file.path
+            req.user.name= req.body.name
+            req.user.age = req.body.age
+            await req.user.save()
+            fs.unlinkSync(oldFile)
             res.send({data:req.user})
         }
         catch(e){
