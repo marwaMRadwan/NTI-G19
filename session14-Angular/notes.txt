@@ -1,0 +1,7 @@
+-- Template Reference ==> #NameOfElement
+
+-- Two Way Binding ==> [] + () = [(ngModel)]  ==> banana in the box
+-- to use [(ngModel)] ==> import {formsModule} from "@angular/forms ==> app.module (imports part)
+
+-- Directives ==> Structure Directives  ==> *ngFor
+                  Attribute Directives

@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row gy-4">
+        <div class="col-4" *ngFor="let item of posts">
+            <div class="card">
+                <img src="assets/images/download.jfif" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.body}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

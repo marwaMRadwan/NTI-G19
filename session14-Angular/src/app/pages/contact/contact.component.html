@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- <form action="" > -->
+    <div class="row mt-4">
+        <div class="col-4">
+
+            <input type="text" class="form-control" placeholder="enter your name"
+                (keyup.alt.shift)="handleInput($event)" (input)="handleInputEvnt(nameInput)" #nameInput>
+
+
+            <h2>{{nameInput.value}}</h2>
+
+
+            <h3>{{inputVal}}</h3>
+
+            <button class="btn btn-primary" (click)="handleBtn()" #saveBtn>Show Name</button>
+
+            <h3>{{buttonShow}}</h3>
+
+            <input type="email" class="form-control mt-3" 
+            placeholder="enter your email" [(ngModel)]="emailInput">
+
+            <h4 class="text-danger">{{emailInput}}</h4>
+        </div>
+    </div>
+    <!-- </form> -->
+
+</div>
