@@ -1,0 +1,90 @@
+                                unknown
+           undefined<-   void <--  any -> null
+
+           boolean
+           number => enum number
+           string => enum string
+           bigint
+           symbol => unique symbol
+           object => array => tuple
+                  => function
+                  => constructor
+
+    never
+
+
+// const x : number = 5
+// let y:any = 7
+// y="marwa"
+// let z : string|number = 5
+// z="marwa"
+
+// let myFun = (name:string):void =>{
+
+// }
+
+// encapsulation
+// constructor
+// read only
+// private, public, protected => access modifiers
+// getter setter
+// inhertance
+// interface
+// // static
+// class User{
+//     static count : number = 0
+//     protected name: string
+//     age:number
+//     readonly count : number = 5
+//     constructor(newName:string, newAge:number){
+//         User.count++
+//         this.name = newName
+//         this.age = newAge
+//     }
+//     set _name(val:string){ if(val=="omar") this.name="he is my boy" }
+//     get _name():string{ return this.name }
+//     show() : void {
+//         console.log(this.name+" - "+this.age)
+//     }
+//     static fun1(){
+//         console.log("hi from static")
+//         console.log(User.count)
+//     }
+
+// }
+// class Teacher extends User{
+//     salary:number
+//     constructor(name:string, age:number, salary:number){
+//         super(name, age)
+//         this.salary=salary
+//     }
+//     show() : void {
+//         console.log(this.name+" - "+this.age + " - " + this.salary)
+//     }
+
+// }
+// const t1 = new Teacher("marwa", 37, 1000)
+// t1.show()
+// const u1 = new User("marwa", 37)
+// const u2 = new User("nouran", 28)
+// u1._name = "omar"
+// console.log(u1._name)
+// console.log(u1.name)
+// console.log(u2.name)
+// u1.show()
+// User.fun1()
+
+
+interface User{
+    name:string
+    age?:number
+}
+
+let x:User = {
+    name:"marwa"
+}
+
+
+
+
+
