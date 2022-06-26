@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row gy-4">
+        <div class="col-4"
+            *ngFor="let post of posts ; let i = index ; let f = first ; let l = last ; let c = count ; let o = odd ; let e = even" >
+            
+                <div class="card" [ngClass]="{'text-danger' : f , 'bg-secondary' : o }"  *ngIf="i != 4">
+                    <div class="card-body">
+                        <h2> first {{f}}</h2>
+                        <h2> last {{l}}</h2>
+                        <h2> count {{c}}</h2>
+                        <h2> even {{e}}</h2>
+                        <h2> odd {{o}}</h2>
+                        <h3> {{i}} - {{post.title}}</h3>
+                        <p>{{post.body}}</p>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let item of post.category">{{item}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>

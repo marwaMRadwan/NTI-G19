@@ -1,0 +1,4 @@
+-- directives ==> structure Directive ==> ngFor , ngIf
+                  attribute Directive ==> ngClass , ngModel
+
+-- interface ==> ng g interface interfaceFolder/interfaceName                  
