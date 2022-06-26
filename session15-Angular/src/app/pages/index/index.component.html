@@ -1,1 +1,26 @@
-<p>index works!</p>
+<div class="container">
+    <h1 [ngStyle]="{'color' : titleColor}">Title</h1>
+    <h2 [ngStyle]="{'color': status == true ? 'red' : 'green' , 'background-color' : status ? 'lightgray' : 'lightpink'}">Angular</h2>
+
+    <button class="btn btn-primary" (click)="status = !status">Change Title Color</button>
+
+    <p>{{d | date : 'shortDate'}}</p>
+    <p>{{d | date : 'dd-MM-yyyy'}}</p>
+
+    <h1>{{title | uppercase}}</h1>
+    <h1>{{title_upper | lowercase}}</h1>
+    <h1>{{title_upper | slice: 1 : 4}}</h1>
+
+    <li *ngFor="let n of arr | slice : 0 : 4">{{n}}</li>
+    <hr>
+    <li class="text-danger" *ngFor="let n of arr | slice : -4">{{n}}</li>
+    <hr>
+
+    {{arr}} 
+    <hr>
+    {{arrObj | json}}
+
+    <h2>{{newobj.name}}</h2>
+    <h2>{{newobj.id}}</h2>
+
+</div>

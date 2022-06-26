@@ -1,4 +1,12 @@
--- directives ==> structure Directive ==> ngFor , ngIf
-                  attribute Directive ==> ngClass , ngModel
+-- directives ==> structure Directive ==> *ngFor , *ngIf , ngSwitch
+                  attribute Directive ==> ngClass , ngModel , ngStyle
 
--- interface ==> ng g interface interfaceFolder/interfaceName                  
+-- interface ==> ng g interface interfaceFolder/interfaceName   
+
+-- ng-template (if condition) , ng-container (multiple directives)
+
+-- pipes (date , slice , uppercase ,lowercase , json)
+
+-- routes ==> app-routing ==> (router Path)
+          ==> app.component.html ==> <router-outlet></router-outlet>
+                                 ==> shared component

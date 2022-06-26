@@ -1,1 +1,14 @@
-<p>contact works!</p>
+<div class="container">
+    <div [ngSwitch]="num" >
+        <ng-container *ngFor="let n of numArr ; let i = index">
+            <p  *ngSwitchCase="n" >number {{n}}</p>
+        </ng-container>
+        <!-- <p *ngSwitchCase="'2'">number 2</p>
+        <p *ngSwitchCase="'3'">number 3</p>
+        <p *ngSwitchCase="'4'">number 4</p>
+        <p *ngSwitchCase="'5'">number 5</p>
+        <p *ngSwitchCase="'6'">number 6</p>
+        <p *ngSwitchCase="'7'">number 7</p> -->
+        <p *ngSwitchDefault>Invalid  Number</p>
+    </div>
+</div>

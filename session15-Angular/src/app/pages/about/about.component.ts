@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
   inputValue:boolean = true
-  showText:any
+  showText:boolean = true
+  invalid : boolean = false
   constructor() { }
 
   ngOnInit(): void {
