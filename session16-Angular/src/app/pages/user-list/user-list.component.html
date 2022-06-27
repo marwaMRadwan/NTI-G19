@@ -1,1 +1,16 @@
-<app-user-form></app-user-form>
+<app-user-form (sendingUser)="handleEvent($event)"></app-user-form>
+
+<table class="table" *ngIf="users.length > 0">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userName}}</td>
+            <td>{{user.userEmail}}</td>
+        </tr>
+    </tbody>
+</table>

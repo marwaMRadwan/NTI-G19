@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http" ;
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { UsersInfoComponent } from './pages/users-info/users-info.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,14 @@ import { ProductsComponent } from './pages/products/products.component';
     UserListComponent,
     NavbarComponent,
     CardComponent,
-    ProductsComponent
+    ProductsComponent,
+    UsersInfoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

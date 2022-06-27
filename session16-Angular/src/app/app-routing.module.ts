@@ -5,6 +5,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { UsersInfoComponent } from './pages/users-info/users-info.component';
 
 const routes: Routes = [
   {path:"" , component : IndexComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path:"posts" , component : PostsComponent},
   {path:"register" , component : RegisterComponent},
   {path:"products" , component : ProductsComponent},
+  {path:"users" , component : UserListComponent},
+  {path:"showUsers" , component : UsersInfoComponent},
 ];
 
 @NgModule({
