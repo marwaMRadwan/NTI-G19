@@ -1,0 +1,1 @@
+-- components Communications ==> parent send data to child ==> @input()
