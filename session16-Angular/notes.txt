@@ -7,3 +7,7 @@
                                     function ==> return data from api
                component.ts ==> object==> globalService
                                 object.function.subscribe()
+
+
+-- Angular Form ==> Template Driven form  ==> FormsModule ==> ngModel
+                    Reactive form

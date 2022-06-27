@@ -6,20 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
-  
+  pathUrl="https://jsonplaceholder.typicode.com/"
+  publicUrl = "http://dashboard.roshetah.com/api/auth"
   constructor(private http : HttpClient) { }
   // https://jsonplaceholder.typicode.com/users
 
   getUsers():Observable<any>{
-    return this.http.get("https://jsonplaceholder.typicode.com/users")
+    return this.http.get(`${this.pathUrl}/users`)
   }
   
   getPosts():Observable<any>{
-    return this.http.get("https://jsonplaceholder.typicode.com/posts?_limit=10")
+    return this.http.get(`${this.pathUrl}posts?_limit=10`)
   }
 
   getSinglePost(id : any):Observable<any>{
-    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    return this.http.get(`${this.pathUrl}posts/${id}`)
+  }
+
+  register(obj:any):Observable<any>{
+    return this.http.post(`${this.publicUrl}/signUp` , obj)
   }
 
   
