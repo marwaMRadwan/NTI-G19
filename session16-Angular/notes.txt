@@ -6,4 +6,4 @@
                globalService.ts ==> import {HttpClient} from "@angular/common/http
                                     function ==> return data from api
                component.ts ==> object==> globalService
-                                                                               
+                                object.function.subscribe()

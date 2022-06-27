@@ -13,6 +13,14 @@ export class GlobalService {
   getUsers():Observable<any>{
     return this.http.get("https://jsonplaceholder.typicode.com/users")
   }
+  
+  getPosts():Observable<any>{
+    return this.http.get("https://jsonplaceholder.typicode.com/posts?_limit=10")
+  }
+
+  getSinglePost(id : any):Observable<any>{
+    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  }
 
   
 }

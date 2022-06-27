@@ -15,6 +15,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { UsersInfoComponent } from './pages/users-info/users-info.component';
+import { SinglePostComponent } from './pages/single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UsersInfoComponent } from './pages/users-info/users-info.component';
     NavbarComponent,
     CardComponent,
     ProductsComponent,
-    UsersInfoComponent
+    UsersInfoComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
