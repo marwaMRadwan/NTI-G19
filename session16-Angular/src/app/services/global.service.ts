@@ -26,6 +26,9 @@ export class GlobalService {
   register(obj:any):Observable<any>{
     return this.http.post(`${this.publicUrl}/signUp` , obj)
   }
+  login(obj:any):Observable<any>{
+    return this.http.post(`${this.publicUrl}/login` , obj )
+  }
 
   
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './pages/contact/contact.component';
 import { IndexComponent } from './pages/index/index.component';
+import { LoginComponent } from './pages/login/login.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"products" , component : ProductsComponent},
   {path:"users" , component : UserListComponent},
   {path:"showUsers" , component : UsersInfoComponent},
+  {path:"login" , component : LoginComponent},
 ];
 
 @NgModule({

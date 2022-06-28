@@ -30,7 +30,9 @@
 
         <div class="col-4">
             <input type="email" placeholder="enter your email" class="form-control" required email
-                [(ngModel)]="model.email" name="email" #email="ngModel">
+                [(ngModel)]="model.email"
+                 name="email"
+                  #email="ngModel">
             <!-- {{email.errors | json}} -->
             <div class="alert alert-danger" *ngIf="email.invalid && register.submitted ">
                 <div *ngIf="email.errors?.['required']">
