@@ -1,0 +1,67 @@
+<!-- Template Driven Form -->
+<form action="" #register="ngForm" (ngSubmit)="handleRegister(register)">
+    <div class="alert alert-danger">
+        values {{register.value | json}} <br>
+        valid {{register.valid}} <br>
+        invalid {{register.invalid}} <br>
+        touched {{register.touched}} <br>
+        submit {{register.submitted}} <br>
+    </div>
+    <div class="row mt-4 gy-3">
+        <div class="col-4">
+            <input type="text" placeholder="enter your name" class="form-control" required [(ngModel)]="model.name"
+                name="name" #name="ngModel" minlength="5">
+                <!-- invalid   {{name.invalid}} <br> -->
+            <div class="alert alert-primary" *ngIf="register.submitted && name.invalid" >
+                <!-- errors    {{name.errors | json}}  <br>
+                 valid   {{name.valid}} <br>
+              
+                 dirty   {{name.dirty}} <br>
+                 touched   {{name.touched}} <br> -->
+                <div *ngIf="name.errors?.['required']">
+                    name is required
+                </div>
+                <div *ngIf="name.errors?.['minlength']">
+                    min length = 5
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-4">
+            <input type="email" placeholder="enter your email" class="form-control" required email
+                [(ngModel)]="model.email"
+                 name="email"
+                  #email="ngModel">
+            <!-- {{email.errors | json}} -->
+            <div class="alert alert-danger" *ngIf="email.invalid && register.submitted ">
+                <div *ngIf="email.errors?.['required']">
+                    email is required
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                    invalid email
+                </div>
+            </div>
+            <!-- nouran@gmail.com -->
+        </div>
+
+        <div class="col-4">
+            <input type="password" placeholder="enter your password" class="form-control" required
+                [(ngModel)]="model.password" name="password" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+
+                <div class="alert alert-danger" *ngIf="password.invalid && register.submitted">
+                    <div *ngIf="password.errors?.['required']">
+                        password is required
+                    </div>
+
+                    <div *ngIf="password.errors?.['pattern']">
+                        must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter
+                    </div>
+                </div>
+        </div>
+
+        <div class="col-3">
+            <button class="btn btn-primary">Register</button>
+        </div>
+    </div>
+</form>

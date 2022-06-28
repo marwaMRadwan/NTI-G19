@@ -1,0 +1,16 @@
+-- components Communications ==> parent send data to child ==> @Input() ==> property binding
+                                 child send data to parent ==> @Output() ==> event binding
+
+-- service ==> ng g s serviceFolder/serviceFileName     
+               app.module ==> import {HttpClientModule} from "@angular/common/http  
+               globalService.ts ==> import {HttpClient} from "@angular/common/http
+                                    function ==> return data from api
+               component.ts ==> object==> globalService
+                                object.function.subscribe()
+
+
+-- Angular Form ==> Template Driven form  ==> FormsModule ==> ngModel
+                    Reactive form ==> ReactiveFormsModule ==> FormGroup
+
+-- routing from ts ==> Router.navigate([])
+                        router.navigateUrl(string)                    
