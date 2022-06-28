@@ -27,10 +27,12 @@ export class LoginComponent implements OnInit {
   constructor(private global: GlobalService , private router : Router) {
     if(localStorage.getItem('token')) this.router.navigate([""])
    }
+   
 
   ngOnInit(): void {
   }
   handleSubmit() {
+    // console.log("hhjjkk")
     this.isSubmitted = true
     console.log(this.loginForm)
     if (this.loginForm.valid) {
