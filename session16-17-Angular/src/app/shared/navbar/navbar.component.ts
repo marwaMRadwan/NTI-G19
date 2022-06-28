@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public global : GlobalService , private route : Router) {
+    // if(localStorage.getItem("token")) this.global.isLogin = true
+   }
 
   ngOnInit(): void {
+    // this.global.isLogin
+  }
+  handleLogOut(){
+    localStorage.removeItem("token")
+    this.global.isLogin = false
+    this.route.navigate(["/"])
   }
 
 }

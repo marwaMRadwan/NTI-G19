@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
 
   errorMsg: any = null
 
-  constructor(private global: GlobalService , private router : Router) { }
+  constructor(private global: GlobalService , private router : Router) {
+    if(localStorage.getItem('token')) this.router.navigate([""])
+   }
 
   ngOnInit(): void {
   }
@@ -39,8 +41,9 @@ export class LoginComponent implements OnInit {
         if (res.error == "Unauthorized") this.errorMsg = "incorrect password"
         if (res.access_token) {
           // this.router.navigate(['posts' , 2])
-          this.router.navigateByUrl("posts/4")
           localStorage.setItem("token" , res.access_token)
+          this.global.isLogin = true
+          this.router.navigateByUrl("posts/4")
         }
 
       }, (err)=>{
