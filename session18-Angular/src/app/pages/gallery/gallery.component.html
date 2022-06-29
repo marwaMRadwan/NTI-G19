@@ -1,1 +1,16 @@
-<p>gallery works!</p>
+
+<div class="text-center" *ngIf="!loadingFlag">
+    <img src="assets/images/loading.gif" alt="">
+</div>
+<div class="row gy-3" *ngIf="loadingFlag">
+    <div class="col-4" *ngFor="let item of data">
+        <div class="card">
+            <img src="{{item.url}}" class="card-top-img" alt="">
+            <!-- <img [src]="item.url" class="card-top-img" alt=""> -->
+            <div class="card-body">
+                <h3>{{item.title}}</h3>
+
+            </div>
+        </div>
+    </div>
+</div>

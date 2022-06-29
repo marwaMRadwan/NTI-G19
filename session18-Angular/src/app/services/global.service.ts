@@ -15,4 +15,7 @@ export class GlobalService {
   editProfileImage(obj:any) :Observable<any>{
     return this.http.post("http://dashboard.roshetah.com/api/auth/StoreAccountImages" , obj)
   }
+  getGallery():Observable<any>{
+    return this.http.get("https://jsonplaceholder.typicode.com/photos")
+  }
 }

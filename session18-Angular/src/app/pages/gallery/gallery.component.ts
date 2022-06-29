@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-gallery',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-
-  constructor() { }
+  data:any
+  loadingFlag:boolean = false
+  constructor(private global:GlobalService) { }
 
   ngOnInit(): void {
+    this.global.getGallery().subscribe(data=>{
+      this.data = data
+    },(err)=>{
+      console.log(err)
+    },()=>{
+      this.loadingFlag = true
+    })
   }
 
 }
