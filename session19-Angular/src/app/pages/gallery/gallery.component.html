@@ -1,0 +1,14 @@
+<div class="row justify-content-center my-4">
+    <div class="col-4">
+        <carousel [(activeSlide)]="activeSlideIndex" >
+            <slide *ngFor="let slide of images; let index=index">
+              <img [src]="slide.url" alt="image slide" style="display: block; width: 100%;">
+           
+              <div class="carousel-caption">
+                <h4>Slide {{index}}</h4>
+                <p>{{slide.title}}</p>
+              </div>
+            </slide>
+          </carousel>
+    </div>
+</div>
