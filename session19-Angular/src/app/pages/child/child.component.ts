@@ -47,7 +47,6 @@ export class ChildComponent implements OnInit {
     localStorage.removeItem("name")
   }
 
-
   handleStorage(){
     localStorage.setItem('name' ,'nouran')
     // this.route.navigate(['gallery'])
