@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
@@ -7,9 +8,14 @@ import { GlobalService } from 'src/app/services/global.service';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
+  images:any
+  constructor(private global :GlobalService , private Activated : ActivatedRoute) {
+    // this.global.navFlag = false
+    // this.global.gallery().subscribe(res=>{
+    //   this.images = res
+    // })
+   this.images =  this.Activated.snapshot.data['galleryImages']
 
-  constructor(private global :GlobalService) {
-    this.global.navFlag = false
    }
 
   ngOnInit(): void {

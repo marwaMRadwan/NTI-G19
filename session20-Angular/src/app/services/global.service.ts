@@ -12,4 +12,8 @@ export class GlobalService {
   login(obj : any):Observable<any>{
     return this.http.post("http://dashboard.roshetah.com/api/auth/login" , obj )
   }
+
+  gallery():Observable<any>{
+    return this.http.get("https://jsonplaceholder.typicode.com/photos")
+  }
 }

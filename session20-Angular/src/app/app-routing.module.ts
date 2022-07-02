@@ -8,6 +8,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
+import { ResolveService } from './services/resolve.service';
 
 const routes: Routes = [
   {path:"" , component:IndexComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
   canActivate:[CanActivateGuard] ,
    canDeactivate:[CanDeactivateGuard]},
 
-  {path:"gallery" , component:GalleryComponent},
+  {path:"gallery" , component:GalleryComponent , resolve:{galleryImages : ResolveService}},
 
   {path:"posts" , canActivateChild:[CanActivateChildGuard], children:[
     {path:"" , component:PostsComponent },
