@@ -1,0 +1,15 @@
+<form action="" #login="ngForm" (ngSubmit)="handleSubmit()">
+    <div class="row my-4 gy-4">
+        <div class="col-4">
+            <input type="email" placeholder="enter your email" class="form-control" name="email"
+                [(ngModel)]="model.email" #email="ngModel">
+        </div>
+        <div class="col-4">
+            <input type="password" placeholder="enter your password" class="form-control" name="password"
+                [(ngModel)]="model.password" #password="ngModel">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary">login</button>
+        </div>
+    </div>
+</form>
