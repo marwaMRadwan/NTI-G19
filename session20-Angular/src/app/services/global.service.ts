@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http'
   providedIn: 'root'
 })
 export class GlobalService {
-
+  public navFlag = true
   constructor(private http : HttpClient) { }
   
   login(obj : any):Observable<any>{

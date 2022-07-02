@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-gallery',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private global :GlobalService) {
+    this.global.navFlag = false
+   }
 
   ngOnInit(): void {
   }
